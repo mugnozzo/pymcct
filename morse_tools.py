@@ -3,7 +3,11 @@ import wave
 import contextlib
 import math
 import array
-import argparse     # to parse arguments passed to the command
+
+# Generate a sine wave for a specific frequency and duration
+def generate_sine_wave(freq, duration, sample_rate):
+    samples = int(sample_rate * duration)
+    return [int(32767 * math.sin(2.0 * math.pi * freq * t / sample_rate)) for t in range(samples)]
 
 def text_to_morse(text):
     # Conversion table
@@ -39,11 +43,6 @@ def morse_to_sound(morse_code, output_file='morse_sound.wav'):
 
     # Sample rate
     sample_rate = 44100  # in Hertz
-
-    # Generate a sine wave for a specific frequency and duration
-    def generate_sine_wave(freq, duration, sample_rate):
-        samples = int(sample_rate * duration)
-        return [int(32767 * math.sin(2.0 * math.pi * freq * t / sample_rate)) for t in range(samples)]
 
     # Create the wave file
     with wave.open(output_file, 'w') as wav_file:
