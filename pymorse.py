@@ -73,7 +73,6 @@ def morse_to_sound(morse_code, output_file='morse_sound.wav'):
             data = [0] * int(1 * unit_duration * sample_rate)
             wav_file.writeframes(bytes(array.array('h', data)))
 
-
     return output_file
 
 text = "Hello"
