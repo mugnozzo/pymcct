@@ -7,6 +7,7 @@ import os.path # to manage input file
 # Parsing arguments
 argParser = argparse.ArgumentParser()
 argParser.add_argument("-o","--output",help = "output wave file (when generating sound)",required = False)
+argParser.add_argument("-i","--input",help = "input plain text file to take text from",required = False)
 
 args = argParser.parse_args()
 
